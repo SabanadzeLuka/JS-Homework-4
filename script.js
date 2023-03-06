@@ -1,4 +1,3 @@
-
 const numbersEl = document.getElementById("cifrebi");
 const buttonEl = document.getElementById("btn");
 let speed = 400;
