@@ -1,3 +1,4 @@
+
 const numbersEl = document.getElementById("cifrebi");
 const buttonEl = document.getElementById("btn");
 let speed = 400;
@@ -23,10 +24,16 @@ function decreaseNumbers() {
   } else {
     numbersEl.innerText = "Click to load";
     buttonEl.removeAttribute("disabled");
+    buttonEl.classList.remove("disabled");
+    buttonEl.removeAttribute("title");
   }
 }
 
-buttonEl.addEventListener("click", function() {
-  writeNumbers();
-  buttonEl.setAttribute("disabled", true);
+buttonEl.addEventListener("click", function () {
+  if (!buttonEl.disabled) {
+    writeNumbers();
+    buttonEl.disabled = true;
+    buttonEl.classList.add("disabled");
+    buttonEl.setAttribute("title", "Please wait for the process to finish");
+  }
 });
